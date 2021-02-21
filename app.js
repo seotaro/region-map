@@ -3,22 +3,24 @@
 (function () {
 
   const regionsets = {
-    "N03": { name: "全国地方公共団体コード", isFill: true, isLine: true }, // 全国地方公共団体コード
-    "AreaForecast": { name: "JMA 全国・地方予報区", isFill: true, isLine: true }, // 全国・地方予報区
-    "AreaForecastLocalM_prefecture": { name: "JMA 府県予報区等", isFill: true, isLine: true }, // 府県予報区等
-    "AreaForecastLocalM_1saibun": { name: "JMA 一次細分区域等", isFill: true, isLine: true }, // 一次細分区域等
-    "AreaForecastLocalM_matome": { name: "JMA 市町村等をまとめた地域等", isFill: true, isLine: true }, // 市町村等をまとめた地域等
-    "AreaInformationCity_weather": { name: "JMA 市町村等（気象警報等）", isFill: true, isLine: true }, // 市町村等（気象警報等）
-    "AreaInformationCity_landslide": { name: "JMA 市町村等（土砂災害警戒情報）", isFill: true, isLine: true }, // 市町村等（土砂災害警戒情報）
-    "AreaInformationCity_river": { name: "JMA 市町村等（指定河川洪水予報）", isFill: true, isLine: true }, // 市町村等（指定河川洪水予報）
-    "AreaInformationCity_quake": { name: "JMA 市町村等（地震津波関係）", isFill: true, isLine: true }, // 市町村等（地震津波関係）
-    "AreaInformationCity_volcano": { name: "JMA 市町村等（火山関係）", isFill: true, isLine: true }, // 市町村等（火山関係）
-    "AreaMarineAJ": { name: "JMA 地方海上予報区", isFill: true, isLine: true }, // 地方海上予報区
-    "AreaForecastEEW": { name: "JMA 緊急地震速報／地方予報区", isFill: true, isLine: true }, // 緊急地震速報／地方予報区
-    "AreaForecastLocalEEW": { name: "JMA 緊急地震速報／府県予報区", isFill: true, isLine: true }, // 緊急地震速報／府県予報区
-    "AreaInformationPrefectureEarthquake": { name: "JMA 地震情報／都道府県等", isFill: true, isLine: true }, // 地震情報／都道府県等
-    "AreaForecastLocalE": { name: "JMA 地震情報／細分区域", isFill: true, isLine: true }, // 地震情報／細分区域
-    "AreaTsunami": { name: "JMA 津波予報区", isFill: false, isLine: true }, // 津波予報区
+    "N03": { name: "全国地方公共団体コード", isFill: true, isLine: true, isPoint: false }, // 全国地方公共団体コード
+    "AreaForecast": { name: "JMA 全国・地方予報区", isFill: true, isLine: true, isPoint: false }, // 全国・地方予報区
+    "AreaForecastLocalM_prefecture": { name: "JMA 府県予報区等", isFill: true, isLine: true, isPoint: false }, // 府県予報区等
+    "AreaForecastLocalM_1saibun": { name: "JMA 一次細分区域等", isFill: true, isLine: true, isPoint: false }, // 一次細分区域等
+    "AreaForecastLocalM_matome": { name: "JMA 市町村等をまとめた地域等", isFill: true, isLine: true, isPoint: false }, // 市町村等をまとめた地域等
+    "AreaInformationCity_weather": { name: "JMA 市町村等（気象警報等）", isFill: true, isLine: true, isPoint: false }, // 市町村等（気象警報等）
+    "AreaInformationCity_landslide": { name: "JMA 市町村等（土砂災害警戒情報）", isFill: true, isLine: true, isPoint: false }, // 市町村等（土砂災害警戒情報）
+    "AreaInformationCity_river": { name: "JMA 市町村等（指定河川洪水予報）", isFill: true, isLine: true, isPoint: false }, // 市町村等（指定河川洪水予報）
+    "AreaInformationCity_quake": { name: "JMA 市町村等（地震津波関係）", isFill: true, isLine: true, isPoint: false }, // 市町村等（地震津波関係）
+    "AreaInformationCity_volcano": { name: "JMA 市町村等（火山関係）", isFill: true, isLine: true, isPoint: false }, // 市町村等（火山関係）
+    "AreaMarineAJ": { name: "JMA 地方海上予報区", isFill: true, isLine: true, isPoint: false }, // 地方海上予報区
+    "AreaForecastEEW": { name: "JMA 緊急地震速報／地方予報区", isFill: true, isLine: true, isPoint: false }, // 緊急地震速報／地方予報区
+    "AreaForecastLocalEEW": { name: "JMA 緊急地震速報／府県予報区", isFill: true, isLine: true, isPoint: false }, // 緊急地震速報／府県予報区
+    "AreaInformationPrefectureEarthquake": { name: "JMA 地震情報／都道府県等", isFill: true, isLine: true, isPoint: false }, // 地震情報／都道府県等
+    "AreaForecastLocalE": { name: "JMA 地震情報／細分区域", isFill: true, isLine: true, isPoint: false }, // 地震情報／細分区域
+    "AreaTsunami": { name: "JMA 津波予報区", isFill: false, isLine: true, isPoint: false }, // 津波予報区
+    "flood_risk_map_all": { name: "JMA 流域雨量指数計算河川及び洪水予報河川の予報区間", isFill: false, isLine: true, isPoint: false }, // 流域雨量指数計算河川及び洪水予報河川の予報区間
+    "amedas": { name: "JMA アメダス観測所", isFill: false, isLine: false, isPoint: true }, // アメダス観測所
   };
 
   initializeController();
@@ -51,12 +53,14 @@
     // レイヤー追加。先にfill、後からline。
     const fillLayers = [];
     const lineLayers = [];
+    const pointLayers = [];
     const regionsetsCount = Object.keys(regionsets).length;
+    let regionsetIndex = 0;
     for (let regionset in regionsets) {
       const source = toSourceId(regionset);
 
       // レイヤーの色は色相を均等に割り当てる。
-      const rgb = hsvToRgb(360 * fillLayers.length / regionsetsCount, 0.8, 1);
+      const rgb = hsvToRgb(360 * regionsetIndex / regionsetsCount, 0.8, 1);
       const color = `${rgb[0]}, ${rgb[1]}, ${rgb[2]}`;
 
       if (regionsets[regionset].isFill) {
@@ -91,11 +95,32 @@
           },
         });
       }
+
+      if (regionsets[regionset].isPoint) {
+        pointLayers.push({
+          "id": toPointLayerId(regionset),
+          "type": "circle",
+          "source": source,
+          "source-layer": regionset,
+          layout: {
+            'visibility': 'none',
+          },
+          paint: {
+            'circle-radius': 5.0,
+            'circle-color': `rgb(${color})`,
+          }
+        });
+      }
+
+      regionsetIndex++;
     }
     for (let layer of fillLayers) {
       map.addLayer(layer);
     }
     for (let layer of lineLayers) {
+      map.addLayer(layer);
+    }
+    for (let layer of pointLayers) {
       map.addLayer(layer);
     }
 
@@ -148,6 +173,9 @@
     if (regionsets[regionset].isLine) {
       setEventListner(toLineLayerId);
     }
+    if (regionsets[regionset].isPoint) {
+      setEventListner(toPointLayerId);
+    }
   }
 
   // map.on('zoom', function () {
@@ -190,6 +218,14 @@
 
       {
         let span = document.createElement('span');
+        span.className = 'header-point';
+        div.appendChild(span)
+
+        initializeCheckboxes(span, toPointLayerId, regionsets[regionset].isPoint);
+      }
+
+      {
+        let span = document.createElement('span');
         span.className = 'header-layer';
         span.innerText = regionsets[regionset].name;
         div.appendChild(span)
@@ -207,6 +243,10 @@
 
   function toLineLayerId(regionsetName) {
     return `${regionsetName}-line`;
+  }
+
+  function toPointLayerId(regionsetName) {
+    return `${regionsetName}-point`;
   }
 
   function hsvToRgb(H, S, V) {
