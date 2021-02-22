@@ -3,24 +3,24 @@
 (function () {
 
   const regionsets = {
-    "N03": { name: "全国地方公共団体コード", isFill: true, isLine: true, isPoint: false }, // 全国地方公共団体コード
-    "AreaForecast": { name: "JMA 全国・地方予報区", isFill: true, isLine: true, isPoint: false }, // 全国・地方予報区
-    "AreaForecastLocalM_prefecture": { name: "JMA 府県予報区等", isFill: true, isLine: true, isPoint: false }, // 府県予報区等
-    "AreaForecastLocalM_1saibun": { name: "JMA 一次細分区域等", isFill: true, isLine: true, isPoint: false }, // 一次細分区域等
-    "AreaForecastLocalM_matome": { name: "JMA 市町村等をまとめた地域等", isFill: true, isLine: true, isPoint: false }, // 市町村等をまとめた地域等
-    "AreaInformationCity_weather": { name: "JMA 市町村等（気象警報等）", isFill: true, isLine: true, isPoint: false }, // 市町村等（気象警報等）
-    "AreaInformationCity_landslide": { name: "JMA 市町村等（土砂災害警戒情報）", isFill: true, isLine: true, isPoint: false }, // 市町村等（土砂災害警戒情報）
-    "AreaInformationCity_river": { name: "JMA 市町村等（指定河川洪水予報）", isFill: true, isLine: true, isPoint: false }, // 市町村等（指定河川洪水予報）
-    "AreaInformationCity_quake": { name: "JMA 市町村等（地震津波関係）", isFill: true, isLine: true, isPoint: false }, // 市町村等（地震津波関係）
-    "AreaInformationCity_volcano": { name: "JMA 市町村等（火山関係）", isFill: true, isLine: true, isPoint: false }, // 市町村等（火山関係）
-    "AreaMarineAJ": { name: "JMA 地方海上予報区", isFill: true, isLine: true, isPoint: false }, // 地方海上予報区
-    "AreaForecastEEW": { name: "JMA 緊急地震速報／地方予報区", isFill: true, isLine: true, isPoint: false }, // 緊急地震速報／地方予報区
-    "AreaForecastLocalEEW": { name: "JMA 緊急地震速報／府県予報区", isFill: true, isLine: true, isPoint: false }, // 緊急地震速報／府県予報区
-    "AreaInformationPrefectureEarthquake": { name: "JMA 地震情報／都道府県等", isFill: true, isLine: true, isPoint: false }, // 地震情報／都道府県等
-    "AreaForecastLocalE": { name: "JMA 地震情報／細分区域", isFill: true, isLine: true, isPoint: false }, // 地震情報／細分区域
-    "AreaTsunami": { name: "JMA 津波予報区", isFill: false, isLine: true, isPoint: false }, // 津波予報区
-    "flood_risk_map_all": { name: "JMA 流域雨量指数計算河川及び洪水予報河川の予報区間", isFill: false, isLine: true, isPoint: false }, // 流域雨量指数計算河川及び洪水予報河川の予報区間
-    "amedas": { name: "JMA アメダス観測所", isFill: false, isLine: false, isPoint: true }, // アメダス観測所
+    "N03": { name: "全国地方公共団体コード", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/N03/{z}/{x}/{y}.pbf'] } }, // 全国地方公共団体コード
+    "AreaForecast": { name: "JMA 全国・地方予報区", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaForecast/{z}/{x}/{y}.pbf'] } }, // 全国・地方予報区
+    "AreaForecastLocalM_prefecture": { name: "JMA 府県予報区等", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaForecastLocalM_prefecture/{z}/{x}/{y}.pbf'] } }, // 府県予報区等
+    "AreaForecastLocalM_1saibun": { name: "JMA 一次細分区域等", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaForecastLocalM_1saibun/{z}/{x}/{y}.pbf'] } }, // 一次細分区域等
+    "AreaForecastLocalM_matome": { name: "JMA 市町村等をまとめた地域等", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaForecastLocalM_matome/{z}/{x}/{y}.pbf'] } }, // 市町村等をまとめた地域等
+    "AreaInformationCity_weather": { name: "JMA 市町村等（気象警報等）", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaInformationCity_weather/{z}/{x}/{y}.pbf'] } }, // 市町村等（気象警報等）
+    "AreaInformationCity_landslide": { name: "JMA 市町村等（土砂災害警戒情報）", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaInformationCity_landslide/{z}/{x}/{y}.pbf'] } }, // 市町村等（土砂災害警戒情報）
+    "AreaInformationCity_river": { name: "JMA 市町村等（指定河川洪水予報）", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaInformationCity_river/{z}/{x}/{y}.pbf'] } }, // 市町村等（指定河川洪水予報）
+    "AreaInformationCity_quake": { name: "JMA 市町村等（地震津波関係）", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaInformationCity_quake/{z}/{x}/{y}.pbf'] } }, // 市町村等（地震津波関係）
+    "AreaInformationCity_volcano": { name: "JMA 市町村等（火山関係）", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaInformationCity_volcano/{z}/{x}/{y}.pbf'] } }, // 市町村等（火山関係）
+    "AreaMarineAJ": { name: "JMA 地方海上予報区", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaMarineAJ/{z}/{x}/{y}.pbf'] } }, // 地方海上予報区
+    "AreaForecastEEW": { name: "JMA 緊急地震速報／地方予報区", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaForecastEEW/{z}/{x}/{y}.pbf'] } }, // 緊急地震速報／地方予報区
+    "AreaForecastLocalEEW": { name: "JMA 緊急地震速報／府県予報区", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaForecastLocalEEW/{z}/{x}/{y}.pbf'] } }, // 緊急地震速報／府県予報区
+    "AreaInformationPrefectureEarthquake": { name: "JMA 地震情報／都道府県等", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaInformationPrefectureEarthquake/{z}/{x}/{y}.pbf'] } }, // 地震情報／都道府県等
+    "AreaForecastLocalE": { name: "JMA 地震情報／細分区域", isFill: true, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaForecastLocalE/{z}/{x}/{y}.pbf'] } }, // 地震情報／細分区域
+    "AreaTsunami": { name: "JMA 津波予報区", isFill: false, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaTsunami/{z}/{x}/{y}.pbf'] } }, // 津波予報区
+    "flood_risk_map_all": { name: "JMA 流域雨量指数計算河川及び洪水予報河川の予報区間", isFill: false, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/flood_risk_map_all/{z}/{x}/{y}.pbf'] } }, // 流域雨量指数計算河川及び洪水予報河川の予報区間
+    "amedas": { name: "JMA アメダス観測所", isFill: false, isLine: false, isPoint: true, source: { type: "geojson", data: 'https://storage.googleapis.com/region-123456/amedas-stations.geojson' } }, // アメダス観測所
   };
 
   initializeController();
@@ -39,14 +39,11 @@
   map.on("load", function () {
 
     // ソース追加
-    for (let regionset in regionsets) {
-      const source = toSourceId(regionset);
-      const url = `https://storage.googleapis.com/region-123456/tiles/${regionset}/{z}/{x}/{y}.pbf`
+    for (let key in regionsets) {
+      const regionset = regionsets[key];
+      const source = toSourceId(key);
 
-      map.addSource(source, {
-        type: "vector",
-        tiles: [url],
-      });
+      map.addSource(source, regionset.source);
     }
 
 
@@ -56,19 +53,20 @@
     const pointLayers = [];
     const regionsetsCount = Object.keys(regionsets).length;
     let regionsetIndex = 0;
-    for (let regionset in regionsets) {
-      const source = toSourceId(regionset);
+    for (let key in regionsets) {
+      const regionset = regionsets[key];
+      const source = toSourceId(key);
 
       // レイヤーの色は色相を均等に割り当てる。
       const rgb = hsvToRgb(360 * regionsetIndex / regionsetsCount, 0.8, 1);
       const color = `${rgb[0]}, ${rgb[1]}, ${rgb[2]}`;
 
-      if (regionsets[regionset].isFill) {
-        fillLayers.push({
-          "id": toFillLayerId(regionset),
+      if (regionset.isFill) {
+        let layer = {
+          "id": toFillLayerId(key),
           "type": "fill",
           "source": source,
-          "source-layer": regionset,
+          "source-layer": key,
           layout: {
             'visibility': 'none',
           },
@@ -77,15 +75,21 @@
             "fill-color": `rgba(${color}, 0.2)`,
             "fill-outline-color": `rgba(${color}, 0.3)`,
           },
-        });
+        }
+
+        if (source.type == "vector") {
+          layout['source-layer'] = key;
+        }
+
+        pointLayers.push(layer);
       }
 
-      if (regionsets[regionset].isLine) {
-        lineLayers.push({
-          "id": toLineLayerId(regionset),
+      if (regionset.isLine) {
+        let layer = {
+          "id": toLineLayerId(key),
           "type": "line",
           "source": source,
-          "source-layer": regionset,
+          "source-layer": key,
           layout: {
             'visibility': 'none',
           },
@@ -93,23 +97,37 @@
             "line-width": 1.0,
             "line-color": `rgb(${color})`,
           },
-        });
+        }
+
+        if (source.type == "vector") {
+          layout['source-layer'] = key;
+        }
+
+        pointLayers.push(layer);
       }
 
-      if (regionsets[regionset].isPoint) {
-        pointLayers.push({
-          "id": toPointLayerId(regionset),
+      if (regionset.isPoint) {
+        let layer = {
+          "id": toPointLayerId(key),
           "type": "circle",
           "source": source,
-          "source-layer": regionset,
           layout: {
             'visibility': 'none',
           },
           paint: {
             'circle-radius': 5.0,
             'circle-color': `rgb(${color})`,
+            'circle-stroke-color': '#333',
+            'circle-stroke-width': 1.0,
+
           }
-        });
+        };
+
+        if (source.type == "vector") {
+          layout['source-layer'] = key;
+        }
+
+        pointLayers.push(layer);
       }
 
       regionsetIndex++;
