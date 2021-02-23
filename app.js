@@ -21,6 +21,8 @@
     "AreaTsunami": { name: "JMA 津波予報区", isFill: false, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/AreaTsunami/{z}/{x}/{y}.pbf'] } }, // 津波予報区
     "flood_risk_map_all": { name: "JMA 流域雨量指数計算河川及び洪水予報河川の予報区間", isFill: false, isLine: true, isPoint: false, source: { type: "vector", tiles: ['https://storage.googleapis.com/region-123456/tiles/flood_risk_map_all/{z}/{x}/{y}.pbf'] } }, // 流域雨量指数計算河川及び洪水予報河川の予報区間
     "amedas": { name: "JMA アメダス観測所", isFill: false, isLine: false, isPoint: true, source: { type: "geojson", data: 'https://storage.googleapis.com/region-123456/amedas-stations.geojson' } }, // アメダス観測所
+    "seismicIntensity": { name: "JMA 震度観測点", isFill: false, isLine: false, isPoint: true, source: { type: "geojson", data: 'https://storage.googleapis.com/region-123456/seismic-intensity-stations.geojson' } }, // 震度観測点
+    "seismicObservation": { name: "JMA 地震観測点", isFill: false, isLine: false, isPoint: true, source: { type: "geojson", data: 'https://storage.googleapis.com/region-123456/seismic-observation-stations.geojson' } }, // 地震観測点
   };
 
   initializeController();
