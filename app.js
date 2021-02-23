@@ -23,6 +23,8 @@
     "amedas": { name: "JMA アメダス観測所", isFill: false, isLine: false, isPoint: true, source: { type: "geojson", data: 'https://storage.googleapis.com/region-123456/amedas-stations.geojson' } }, // アメダス観測所
     "seismicIntensity": { name: "JMA 震度観測点", isFill: false, isLine: false, isPoint: true, source: { type: "geojson", data: 'https://storage.googleapis.com/region-123456/seismic-intensity-stations.geojson' } }, // 震度観測点
     "seismicObservation": { name: "JMA 地震観測点", isFill: false, isLine: false, isPoint: true, source: { type: "geojson", data: 'https://storage.googleapis.com/region-123456/seismic-observation-stations.geojson' } }, // 地震観測点
+    "tsunami": { name: "JMA 津波及び潮位の観測地点", isFill: false, isLine: false, isPoint: true, source: { type: "geojson", data: 'https://storage.googleapis.com/region-123456/tsunami-stations.geojson' } }, // 津波及び潮位の観測地点
+    "strain": { name: "JMA 地殻ひずみ観測点（体積ひずみ＆線ひずみ）", isFill: false, isLine: false, isPoint: true, source: { type: "geojson", data: 'https://storage.googleapis.com/region-123456/strain-stations.geojson' } }, // 地殻ひずみ観測点（体積ひずみ＆線ひずみ）
   };
 
   initializeController();
